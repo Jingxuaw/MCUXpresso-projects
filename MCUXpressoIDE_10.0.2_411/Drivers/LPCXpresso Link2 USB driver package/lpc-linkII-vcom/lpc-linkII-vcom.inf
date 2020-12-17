@@ -1,0 +1,59 @@
+; 
+; NXP  Communication Device Class driver installation file
+; (C)2012 Copyright 
+;
+
+[Version] 
+Signature="$Windows NT$" 
+Class=Ports
+ClassGuid={4D36E978-E325-11CE-BFC1-08002BE10318} 
+Provider=%NXP% 
+CatalogFile=lpc-linkII-vcom.cat
+DriverVer=10/31/2014,2.0.0.0
+
+[Manufacturer] 
+%NXP%=DeviceList, NTx86, NTamd64, NTARM
+
+[DeviceList.NTx86] 
+%LPCVCOM%=LPCVCOM,USB\VID_1FC9&PID_0090&MI_01
+
+[DeviceList.NTamd64] 
+%LPCVCOM%=LPCVCOM,USB\VID_1FC9&PID_0090&MI_01
+
+[DeviceList.NTARM] 
+%LPCVCOM%=LPCVCOM,USB\VID_1FC9&PID_0090&MI_01
+
+;------------------------------------------------------------------------------
+;  Windows 2000/XP Sections
+;------------------------------------------------------------------------------
+
+[LPCVCOM]
+include=mdmcpq.inf
+CopyFiles=FakeModemCopyFileSection
+AddReg=LPCVCOM.AddReg
+
+[LPCVCOM.Services]
+AddService = usbser, 0x00000002, LPCVCOM.ServiceInst
+; This adds the serial port property tab to the device properties dialog
+
+[LPCVCOM.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,usbser.sys
+HKR,,EnumPropPages32,,"MsPorts.dll,SerialPortPropPageProvider"
+
+[LPCVCOM.ServiceInst]
+DisplayName=%SERVICE%
+ServiceType = 1 ; SERVICE_KERNEL_DRIVER
+StartType = 3 ; SERVICE_DEMAND_START
+ErrorControl = 1 ; SERVICE_ERROR_NORMAL
+ServiceBinary= %12%\usbser.sys
+LoadOrderGroup = Base
+
+;------------------------------------------------------------------------------
+;  String Definitions
+;------------------------------------------------------------------------------
+
+[Strings] 
+NXP="NXP"
+LPCVCOM="LPC-LinkII UCom Port" 
+SERVICE="LPC-LinkII VCOM driver"

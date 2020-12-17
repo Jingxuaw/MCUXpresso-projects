@@ -1,0 +1,131 @@
+; LPC-Link.inf
+; Code Red Technologies LPCXpresso WinUsb Driver INF
+; Copyright (c) Code Red Technologies
+
+[Version]
+Signature = "$Windows NT$"
+Class = USB
+ClassGuid={36FC9E60-C465-11CF-8056-444553540000}
+Provider = %ProviderName%
+DriverVer=08/06/2009,7.0.7600.16385
+CatalogFile.NTx86=LPC-Link_x86.cat
+CatalogFile.NTamd64=LPC-Link_amd64.cat
+
+; ================== Class section ==================
+
+[ClassInstall32]
+Addreg=LPCXpressoDeviceClassReg
+
+[LPCXpressoDeviceClassReg]
+HKR,,,0,%ClassName%
+HKR,,Icon,,"-1"
+
+; ========== Manufacturer/Models sections ===========
+
+[Manufacturer]
+%ProviderName% = LPCXpressoDevice_WinUSB,NTx86,NTamd64
+
+[LPCXpressoDevice_WinUSB.NTx86]
+%USB\LPCXpressoDevice.DeviceDesc% =USB_Install, USB\VID_1FC9&PID_0009
+
+[LPCXpressoDevice_WinUSB.NTamd64]
+%USB\LPCXpressoDevice.DeviceDesc% =USB_Install, USB\VID_1FC9&PID_0009
+
+; =================== Installation ===================
+
+;[1]
+[USB_Install]
+Include=winusb.inf
+Needs=WINUSB.NT
+
+;[2]
+[USB_Install.Services]
+Include=winusb.inf
+AddService=WinUSB,0x00000002,WinUSB_ServiceInstall
+
+;[3]
+[WinUSB_ServiceInstall]
+DisplayName     = %WinUSB_SvcDesc%
+ServiceType     = 1
+StartType       = 3
+ErrorControl    = 1
+ServiceBinary   = %12%\WinUSB.sys
+
+;[4]
+[USB_Install.Wdf]
+KmdfService=WINUSB, WinUsb_Install
+UmdfServiceOrder=WINUSB
+
+[WinUSB_Install]
+KmdfLibraryVersion=1.9
+
+;[5]
+[USB_Install.HW]
+AddReg=Dev_AddReg
+
+[Dev_AddReg]
+HKR,,DeviceInterfaceGUIDs,0x10000,"{CC7B1CBB-8A09-40A0-BD16-DF6D926C1CDA}"
+
+;[6]
+; ------------- WDF Coinstaller installation  --------------
+;
+[USB_Install.CoInstallers]
+AddReg=CoInstallers_AddReg
+CopyFiles=CoInstallers_CopyFiles
+
+[CoInstallers_AddReg]
+HKR,,CoInstallers32,0x00010000,"WinUSBCoInstaller2.dll","WUDFUpdate_01009.dll","WdfCoInstaller01009.dll,WdfCoInstaller"
+
+[CoInstallers_CopyFiles]
+WinUSBCoInstaller2.dll
+WdfCoInstaller01009.dll
+WUDFUpdate_01009.dll
+
+;
+;------------------ end of WDF section ---------------------
+
+
+; ================= Copy Files Section =====================
+
+[LPCXpresso_CopyDll]
+crt_usb_probe.dll
+
+[LPCXpresso_CopyInf]
+LPCXpresso.inf
+
+
+; =============== Destination Directories ==================
+
+[DestinationDirs]
+DefaultDestDir = 12 ; %SystemRoot%\system32\drivers
+CoInstallers_CopyFiles=11
+WinUSB_CopySys = 12
+LPCXpresso_CopyDll=11
+LPCXpresso_CopyInf=17
+
+
+; ================ Source Media Section ====================
+;[7]
+
+[SourceDisksNames]
+1 = %DISK_NAME%,,,\x86
+2 = %DISK_NAME%,,,\amd64
+
+[SourceDisksFiles.x86]
+WinUSBCoInstaller2.dll=1
+WdfCoInstaller01009.dll=1
+WUDFUpdate_01009.dll=1
+
+[SourceDisksFiles.amd64]
+WinUSBCoInstaller2.dll=2
+WdfCoInstaller01009.dll=2
+WUDFUpdate_01009.dll=2
+
+; =================== Strings ===================
+
+[Strings]
+ProviderName="Code Red Technologies"
+USB\LPCXpressoDevice.DeviceDesc="LPC-Link Debug Probe v1.1"
+WinUSB_SvcDesc="LPC-Link Debug Probe v1.1"
+DISK_NAME="Install"
+ClassName="LPC-Link Driver"
