@@ -1,0 +1,665 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf400
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 TimesNewRomanPSMT;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+{\info
+{\author Steve Cox}}\paperw11900\paperh16840\margl1134\margr567\margb567\margt567\vieww29100\viewh16380\viewkind1
+\deftab1120
+\pard\pardeftab1120\ri-6\partightenfactor0
+
+\f0\b\fs22 \cf0 MCUXpresso IDE\
+\
+Version 10.2.1 (July 2018)\
+\
+
+\b0 * Fixed issue in New Project Wizard when switching between a board\
+  and a generic device (or vice versa)\
+\
+* Fixed issue with floating point settings when importing SDK\
+  example projects for Cortex-M7 based MCUs\
+\
+* Fixed issue with notification of missing dependencies when\
+  Add/Remove Component used with SDK v2.4.0 packages\
+\
+* Improved options to handle part selection when project importing\
+  in cases where associated SDK is not installed\
+\
+* Fixed issue which could prevent a renamed project from being\
+  debugged in some circumstances\
+\
+* Resolved various issues with user interface of GUI Flash Tool\
+\
+* Resolved issue with workspace preferences when trying to configure\
+  the Debug perspective to be used for debugging projects\
+  (instead of the default Develop perspective)\
+\
+* Improved reliability of LinkServer debug sessions via enhancements\
+  to the way the IDE connects to the server process, as well as \
+  enhancements in the server itself\
+\
+* Improved the IDE's display of the LinkServer "RedlinkServer" \
+  console  \
+ \
+ * Fixed issue with LinkServer "Disconnect behavior" always using\
+  "cont", even when configured to use another disconnect option\
+ \
+* Option to terminate debug session added to IDE's LinkServer error\
+  dialog\
+\
+* Fixed issue with handling of number formats for entries in\
+  Global Variables view\
+\
+* Live Global Variable graphing no longer inserts spurious zero\
+  entry when target paused\
+\
+* Fixed issue with enumerated bitfield handling in the Peripheral\
+  Register viewer\
+\
+* Fixed issue with display of PriMask, BasePri, FaultMask and\
+  Control special registers in Registers view for LinkServer\
+  debug sessions. This change also now allows these registers\
+  to be edited\
+\
+* Fixed issue with LinkServer erroneously setting VTOR in some\
+  circumstances after programming flash\
+\
+* Fixed issue with zoom function on SWO Interrupt Trace view\
+\
+* Fixed issue with Instruction Trace view, which could prevent\
+  profile information being displayed in source and disassembly\
+  views in some circumstances\
+\
+* Fixed issue with Instruction Trace Config view, which prevented\
+  a modified configuration being saved\
+\
+* Preliminary LinkServer SPI flash drivers that self-configure\
+  using JEDEC SFDP information read from the device are now\
+  included for i.MX RT1020 (QSPI) and RT1050 (QSPI and Hyperflash)\
+\
+* Example device specific flash driver projects provided for\
+  i.MX RT1020 and RT1050. These can be used as a starting point for\
+  writing flash drivers for custom boards fitted with flash\
+  devices that do not support SFDP information\
+\
+* Updated FreeRTOS TAD plugin to v1.0.6\
+   - Fixed issues with Pause button\
+   - Added more verbose log for determining heap type\
+   - Removed problematic heap identification from available\
+     variables\
+\
+* Fixed issue which prevented the P&E Micro plugin updating from\
+  the P&E update server\
+\
+* Upgraded to a later version of the P&E Micro plugin (v3.5.6)\
+\
+* Upgraded to a later version of the SEGGER software (v6.32h)\
+\
+
+\b \
+Version 10.2.0 (May 2018)
+\b0 \
+\
+* Upgraded Eclipse to Oxygen.3a / CDT 9.4.3. Amongst other\
+  improvements, this typically delivers a noticeable increase in\
+  build speeds\
+\
+* Upgraded supplied GNU ARM Embedded Toolchain to GCC7(2017q4-major)\
+\
+* Upgraded integrated version of MCUXpresso Config Tools to v4.1\
+\
+* Pro Edition discontinued. All IDE functionality now enabled out of\
+  the box without any further activation or purchase\
+\
+* Mac OS X version of product now fully 64-bit\
+\
+* Quickstart Panel redesigned and now provides direct access to\
+  various operations for specific debug solutions\
+\
+* Added support for project Virtual Nodes in Project Explorer View,\
+  providing improved access to project information and settings\
+\
+* Added support for MCUXpresso SDK v2.4.0\
+\
+* Improved handling of relationship between a project and its\
+  associated SDK package, for instance allowing user to select an\
+  appropriate, alternate installed SDK package if the originally\
+  associated SDK is no longer installed\
+\
+* Fixed issue with handling of non-Latin characters in username\
+  when creating SDK support folders\
+\
+* SDK-based projects can now be converted to have \'91local SDK part\
+  support\'92, allowing improved project sharing (such projects no\
+  longer require the full associated SDK to be installed in order\
+  to build/debug)\
+\
+* SDK Documentation now accessible from within Installed SDKs View\
+\
+* Enhanced accessibility of SDK Manifest information directly from\
+  within IDE Views\
+\
+* Naming scheme used when importing SDK example projects simplified,\
+  leading to shorter, more legible filenames (also helping to\
+  avoid filename length issues when building projects on Windows)\
+\
+* Include paths added on SDK project creation are now created\
+  project relative (reducing the size of the -I options passed to\
+  gcc), except in the case where "copy sources" is deselected.\
+\
+* Projects can now be imported into a Workspace by dragging and\
+  dropping a folder (or zip) containing one or more projects into\
+  the Project Explorer View\
+\
+* Projects can also be exported by dragging from the Project\
+  Explorer View directly to an OS filer window\
+\
+* Added support for refreshing projects to pull in files from\
+  a newer SDK than the one they were created with\
+\
+* Enhanced display of SDK components in dialogs such as the New\
+  Project Wizard by allowing full-height scalable columns\
+\
+* Fixed a minor issue with semihosting hard fault handler generated\
+  by project wizards, failing to set return value correctly\
+\
+* Fixed an issue with the SDK new project wizard failing to set\
+  some compiler options correctly, meaning that project build size\
+  increased, as unused functions in project sources were not removed\
+  by the linker by default\
+\
+* Projects created against SDK v2.4.0 packages will now link with\
+  the "--sort-section=alignment" option (generally, unless\
+  overridden by SDK settings)\
+\
+* Improved structure and content of static library projects created\
+  by the SDK new project wizard\
+\
+* Enhanced support for project local LinkServer debug scripts\
+\
+* Added support for project local LinkServer flash drivers\
+\
+* Global data placement override added to Managed Linker Script\
+  properties, allowing global data to be located in RAM regions\
+  other than the first listed in the memory configuration\
+\
+* Managed Linker Script properties enhanced to allow user-specified\
+  input sections to be listed in specific memory regions in\
+  the generated linker script\
+\
+* Managed Linker Script page in Project Properties reorganized to\
+  give better layout of related options\
+\
+* Fixed an issue with validation of heap and stack region sizes on\
+  the Managed Linker Script page in Project Properties\
+\
+* Support for "Plain load images" added to the managed linker script\
+  mechanism - for use with LPC540xx MCUs. This allows an image to\
+  be placed into flash but relocated to RAM by the bootrom for\
+  execution\
+\
+* Instruction Trace functionality now available with P&E Micro and\
+  SEGGER debug connections, as well as with LinkServer connections\
+\
+* New "GUI Flash Tool", replacing and extending the functionality\
+  previously provided by the LinkServer GUI Flash Programmer. This\
+  also supports use with P&E Micro and SEGGER debug connections, as\
+  well as LinkServer connections\
+\
+* Global Variables View now offers the ability, with LinkServer\
+  debug connections, to display a live trace of values, either as\
+  text or graphically\
+\
+* Memory addresses can now be added as expressions to the Global\
+  Variables View\
+\
+* Fixed various issues with the Peripheral Register viewer, including\
+  incorrect display of peripherals defined using the SVD "cluster"\
+  tag, and failure to display certain bitfields correctly in some\
+  circumstances. Also, bitfield display ordering within registers is\
+  now identical for all probe types\
+\
+* Enhanced filter mechanism provided by the Peripheral Register viewer\
+\
+* For LinkServer and SEGGER debug connections, a hardware breakpoint\
+  is now used by default (where Cortex-M hardware allows) for the\
+  default temporary breakpoint on main(), improving support for\
+  debugging images that are relocated into RAM at boot time\
+\
+* Fixed an issue with LinkServer debug connections, which caused the\
+  IDE's Debug View to always display "(Stopped)" in thread status\
+  (even when running) when FreeRTOS thread awareness was not in use\
+\
+* Fixed an issue with LinkServer's "vectpc" pseudo-register in the\
+  Register View (used to provide CPU status information when\
+  exceptions such as hard faults are triggered)\
+\
+* Further improvements to the performance of standard LinkServer\
+  semihosting\
+\
+* "Mailbox semihosting" mechanism now available for images linked with\
+  the Redlib C library and debugged via a LinkServer debug connection.\
+  This offers a major increase in bandwidth / performance compared to\
+  standard, breakpoint-based semihosting, as the target is no longer\
+  halted to transfer data. It requires the image to be linked against\
+  a new Redlib variant, and comes at the cost of a small increase in\
+  code size and RAM requirements\
+\
+* New Terminal View available, allowing UART output from target MCU\
+  to be displayed within the IDE rather than requiring a separate host\
+  terminal application\
+\
+* Removed automatic definition of bitband memory aliases in the\
+  LinkServer debug connection on Cortex-M3/M4/M7 parts, as\
+  these could prevent debugging in situations where a project\
+  contained similar regions in its memory configuration\
+\
+* LinkServer SPIFI flash drivers that self-configure using JEDEC\
+  SFDP information read from the device are now included for the\
+  LPC18xx, LPC43xx, LPC546xx, and LPC540xx families\
+\
+* LinkServer QSPI flash driver provided for MIMXRT1050-EVK and\
+  EVKB boards. Note that these boards require modification to\
+  use QSPI device rather than default Hyperflash device\
+\
+* Upgraded to a later version of the P&E Micro plugin (v3.5.3)\
+\
+* Upgraded to a later version of the SEGGER software (v6.32a)\
+\
+* Updated SEGGER gdbserver detection on Mac / Linux to take into\
+  account changes made by SEGGER to filenames on these platforms\
+  (in J-Link v6.30 and later)\
+\
+* Added the LPC804 MCU to pre-installed part support\
+\
+* Extended the Eclipse headless build mechanism to use the environment\
+  variable "MCUXPRESSOIDE_SDK_INSTALL" to point to the SDK install\
+  directory (primarily to support use of build servers)\
+\
+* Optional, anonymous usage information is now collected by the main\
+  IDE, as well as the integrated Config Tools\
+\
+* Updated the FreeRTOS TAD plugin to v1.0.4. Changes include:\
+  - Fixed Heap 5 issue with displaying large free blocks\
+  - Fixed Heap 5 issue with calculating wrong size of heap\
+  - Fixed issue with task stack showing overflow when usStackDepth\
+    is greater than 2048\
+  - Fixed a heap identification issue\
+  - Fixed an issue with Queue View when no queue has been registered\
+
+\b \
+Version 10.1.1 (Dec 2017)\
+\
+
+\b0 * Fixed an issue seen when importing a single SDK example, in which\
+  example-specific settings could in some circumstances be overridden\
+  by IDE defaults\
+\
+* Fixed an issue with SDK example import failing to set the correct\
+  memory definition in a generated project, in a situation where there\
+  is an example-specific memory configuration and also one in the\
+  manifest for the board itself\
+
+\b \
+Version 10.1.0 (Nov 2017)\
+\
+
+\b0 * MCUXpresso Config Tools now integrated within the IDE, for use\
+  with SDK based projects\
+\
+* Upgraded supplied GNU ARM Embedded Toolchain to GCC 6 update 2\
+\
+* Increased default max heap space of Eclipse environment requested\
+  by the IDE\
+\
+* Additional Eclipse Features supplied within IDE installation:\
+  - Eclipse Marketplace Client\
+  - Eclipse XML Editors and Tools\
+  - Eclipse XPath Developer Tools\
+  - Eclipse XSL Developer Tools\
+\
+* Fixed issue with Memory Configuration Editor when all memory blocks\
+  deleted\
+\
+* Parallel building of projects now also enabled for "release" build\
+  configuration (previously this was only done for "debug" builds)\
+\
+* Managed linker scripts now generate _HeapSize and _StackSize\
+  symbols when configured for "MCUXpresso Style" Heap and Stack\
+  placement\
+\
+* Managed linker scripts now generate _image_start, _image_end and\
+  _image_size symbols giving location and size of main text block\
+  (including initial values of RW data sections)\
+\
+* Added "Information" option to Binary Utilities menu to run\
+  arm-eabi-readelf utility\
+\
+* Enhancements to IDE's SDK handling for SDK v2.3.0 packages and\
+  manifests\
+\
+* SDK default folder mechanism updated to provide a versioning\
+  subdirectory, to prevent clash of installed SDKs if IDE v10.0.x\
+  is used after SDKs are installed into IDE v10.1.0\
+\
+* Improvements to Installed SDKs View. IDE will now show which\
+  manifest is in use and the handling of decorators (icons) to\
+  reflect SDK state has been enhanced\
+\
+* Improved handling of imported project when no matching SDK part\
+  support installed\
+\
+* Provided Delete option for when a newer version of a specific SDK\
+  is imported and replaced an older version\
+\
+* New SDK Add/Remove Component Manager allowing addition and removal\
+  of drivers, RTOS and  many Middleware components to existing\
+  projects. Note some functionality only available when used with\
+  SDK v2.3.0 packages\
+\
+* SDK new project wizard now provides Middleware component selection\
+ (for use with SDK v2.3.0 packages)\
+\
+* IDE now supports SDK component categorization (where provided by\
+  SDK)\
+\
+* Projects using linked references to SDKs sources now export with\
+  only relative include paths (to an environment variable) so\
+  simplifying project sharing\
+\
+* Improved interaction between SDK and IDE over project settings\
+  (for SDK v2.3.0 packages). This allows, for instance, better\
+  syncronization in the Advanced setting page when importing\
+  examples. Also allows for projects which require specific settings\
+  such as Newlib or floating point printf\
+\
+* Enhancements to the SDK Wizard Advanced Setting page, including\
+   - Redirect printf/scanf to ITM option now disabled for Cortex-M0+\
+     cpu in multicore MCUs\
+   - C++ project selection in project wizard now prevents selection\
+     of Redlib\
+\
+* Improved multicore SDK project handling, including enhancements\
+  within the SDK new project and import example(s) wizards\
+\
+* Enhancements to SDK handling allowing removal of "Reload" part\
+  support function, leaving only "Recreate"\
+\
+* Filter functionality for Importing SDK Examples enhanced so\
+  that now filters on any part of the example path, not just the\
+  leaf name of the example\
+\
+* New Project Wizard improved to better handle situation where user\
+  uses "back" button\
+\
+* Fixed issue with export of examples.xml file\
+\
+* Fixed issue that in some circumstances importing multiple examples\
+  could cause some projects to fail to build\
+\
+* Changes made to the SDK new project wizard's default board button\
+  position and its selection\
+\
+* Pressing SHIFT at same time as clicking on the Quickstart Panel's\
+  Debug option will now force a debug probe re-discovery\
+\
+* Fixed issue with IDE failing to display Peripheral View for a\
+  peripheral which is enabled but where some, but not all, of the\
+  registers are not accessible (for instance SPI peripheral in\
+  slave mode on Kinetis parts)\
+\
+* Added alternate ("non-enhanced") Peripheral View service for\
+  use with LinkServer that works in the same way as the Peripheral\
+  View services provided for SEGGER and P&E debug connections. This\
+  is disabled (via a preference) by default, as it is largely\
+  intended for internal testing purposes.\
+\
+* Fixed issues with Peripheral View for SEGGER and P&E debug\
+  probes, plus LinkServer in non-enhanced peripheral mode:\
+  - LPC17xx and LPC12xx peripherals can now be displayed\
+  - Display state no longer lost when execution restarted\
+  - Selecting peripheral register value no longer triggers an error\
+\
+* Semihosting HardFault handler now automatically included in\
+  new/imported SDK projects. This allows semihosted applications to\
+  continue execution without debug tools attached\
+\
+* AllStop mode option is now saved if a LinkServer launch\
+  configuration is created manually for the connected probe (as\
+  opposed to using the Quickstart Panel Debug option)\
+\
+* LinkServer multicore debug auto-core select now works correctly\
+  for Cortex-M0+ core on LPC541xx MCUs (using pre-installed part\
+  support)\
+\
+* Fixed issue with deleting JTAG/SWD configurations (for LinkServer\
+  connections, typically to multicore MCUs) actually deleting the\
+  launch configuration files.\
+\
+* Fixed issue with IDE's Register View when debugging multicore MCUs\
+  such that it displayed Cortex-M4 registers, but referenced them as\
+  being for the Cortex-M0+\
+\
+* For LinkServer debug sessions, failed debug sessions now report\
+  specific session that failed (useful when debugging more than one\
+  target)\
+\
+* Various functional enhancements to LinkServer GUI flash\
+  programmer. Dialog window also now resizable.\
+\
+* Fixed LinkServer (redlinkserver) script TIME function on Mac and\
+  Linux. Also corrected time resolution for this function on all 3\
+  host platforms\
+\
+* Fixed clock setup issue with LinkServer LPC5411x and LPC546xx\
+  flash drivers, which could occasionally cause programming failures.\
+  This fix also provides noticeable increase in programming\
+  performance on these parts\
+\
+* Upgraded to a later version of the SEGGER software (v6.20d)\
+\
+* Upgraded to a later version of the P&E Micro plugin (v3.1.8)\
+\
+* Enhanced gdbserver console for SEGGER debug connection to quote\
+  invoked J-Link command when path contains spaces\
+\
+* Added support for Environment variables in JLink options\
+\
+* Improved SEGGER server handling to link consoles created to\
+  project being debugged\
+\
+* Improved SEGGER debug reset handling\
+\
+* Improved automatic LPC MCU part matching mechanism for P&E Micro\
+  debug launch configurations\
+\
+* Added LPC802 MCU to pre-installed part support\
+\
+* Added LPC8N04 MCU to pre-installed part support\
+
+\b \
+\
+\
+\
+Version 10.0.2 (Jul 2017)\
+\
+
+\b0 * Fixed an issue where an MCU provided in both SDK and\
+  pre-installed support (e.g. LPC5411x) could in some\
+  circumstances erroneously reselect part support for a project\
+  from the wrong source\
+\
+* Solved an issue with attempting to install a non-IDE-compatible\
+  SDK into a non-default location\
+  \
+* Solved some issues with creating projects in non-default\
+  locations\
+\
+* Fixed an issue with the Properties View displaying information\
+  for the wrong device in some circumstances (for pre-installed\
+  parts)\
+\
+* Fixed an issue with incorrect dependency selection in project \
+  wizards in some circumstances when switching between boards\
+\
+* It is now possible to create makefile projects for SDK MCUs\
+\
+* Enhanced the Memory Configuration Editor to give an error if\
+  there is no RAM defined for a project\
+  \
+* Enhanced the Heap & Stack Editor to allow heap size to be set\
+  to zero\
+\
+* Added a "Create Srecord" option to the Binary Utilities menu\
+\
+* Implemented a port auto-discovery mechanism for LinkServer,\
+  SEGGER and P&E Micro debug sessions, to improve concurrent\
+  debug session behavior\
+\
+* Improved editing of launch configurations via double-click, and\
+  also improved their presentation in the Project Explorer\
+\
+* Fixed some issues with manually generated launch configurations \
+  (including non-stop setting)\
+  \
+* Added probe icons in the "Launch Configuration Selection" dialog\
+\
+* Fixed a failure to display registers for certain peripherals\
+  in Peripheral View for SDK-based MCUs\
+ \
+* Resolved an issue with Peripherals failing to display if a '_' \
+  character was used in a register name\
+\
+* Fixed some issues with the semihosting console:\
+  - Space/newline characters were occasionally lost when printing\
+    only a single character\
+  - Empty strings were sometimes mishandled\
+      \
+* Fixed an issue with "Terminate All" in some circumstances when \
+  multiple debug connections were active   \
+\
+* Improved synchronization of the state of MUCXpresso IDE's blue\
+  debug button on the toolbar with the one on the Quickstart\
+  Panel, particularly when moving between tabs\
+\
+* Stopped the Registers View triggering a null pointer error when\
+  an n/a value was clicked\
+\
+* Fixed a LinkServer issue with the setting of watchpoints when \
+  debugging Cortex-M0/M0+ based MCUs\
+\
+* Fixed an issue with auto-core selection when debugging\
+  triple-core LPC43xx devices\
+  \
+* Fixed an issue with display of performance counters in\
+  LinkServer SWO Trace\
+\
+* LinkServer FreeRTOS Thread Aware Debug is now only available in\
+  all-stop debug connections, not in non-stop. However, FreeRTOS\
+  TAD Views are still available for non-stop connections\
+\
+* Fixed an issue with LinkServer debug connections losing target\
+  control when an attempt was made to use more hardware\
+  breakpoint units than were implemented by the MCU\
+\
+* Fixed an issue where peripherals could fail to be displayed in \
+  LinkServer debug connections in some circumstances\
+\
+* Enhanced LinkServer support for debugging RAM-only projects\
+\
+* Reduced the startup time for LinkServer debug sessions\
+\
+* Improved the performance of LinkServer semihosting\
+\
+* Enhanced LinkServer to allow restricted parsing\
+  of the MCU debug AP bus, allowing support for MCUs with \
+  incomplete Coresight implementations\
+  - Debug of Kinetis KL28 MCUs is now supported via LinkServer\
+\
+* Fixed an issue with MCUXpresso IDE mistakenly attempting to use \
+  JTAG instead of SWD connections for certain CMSIS-DAP probes \
+  with multicore MCUs that have no JTAG support in hardware\
+  \
+* Fixed an issue with MCUXpresso IDE in some circumstances trying\
+  to make a LinkServer multicore debug connection to a slave core \
+  without correctly selecting the core\
+  \
+* Fixed the Save button for the LinkServer SWO Trace ITM console \
+\
+* LinkServer no longer leaves the MCU's CPU in debug mode when \
+  terminating a debug connection (so semihosted I/O will now\
+  hard fault, rather than causing the CPU to enter debug)\
+\
+* Made various improvements to the LinkServer GUI flash\
+  programmer\
+\
+* Upgraded to a later version of the SEGGER software (v6.16b)\
+\
+* Improved SEGGER support, including:\
+  - Support for concurrent debugging via multiple SEGGER probes\
+  - Improved SEGGER launch configuration UI, providing more \
+    options directly and adding a new Startup tab\
+  - Fixed an issue with terminating a debug session when multiple\
+    SEGGER debug sessions are active\
+  - Enhanced automatic part selection for SEGGER debug\
+    connections of pre-installed MCUs\
+  - Changed the SEGGER device dropdown to accept free-form text \
+  - Fixed an issue seen when debugging with an external SEGGER\
+    GDB server, which triggered telnet console issues\
+  - SEGGER server errors now appear in the dialog when debug\
+    connections fail\
+  - Fixed a server shutdown when a debug session was terminated\
+    to leave the board in a running state\
+   \
+* Upgraded to a later version of the P&E Micro plugin (v3.0.3)\
+   \
+* Improved P&E Micro support, including:\
+  - Support for concurrent debugging via multiple P&E Micro\
+    probes\
+  - Fixed an issue with the Quickstart Teminate/Build/Debug\
+    button when used with P&E Micro debug connections\
+   \
+* Various other bug-fixes and UI tweaks, including:\
+  - Quickstart Panel floating point options made device\
+    specific         \
+  - Added a link to the Error Log View in the invalid SDK\
+    exception error dialog\
+  - Fixed a LinkServer semihosting input issue (e.g. scanf\
+    needing extra carriage returns)\
+  - Fixed an issue with handling the LPC5411x SDK versus\
+    preinstalled support board selection\
+  - Removed non-stop Probe Discovery options that had been\
+    presented for the LinkServer GUI Flash Programmer Mass erase\
+    function\
+  - Added an option to the Project Wizard to allow import of \
+    "miscellaneous" files from SDK project structure and SDK\
+    components into the generated project\
+  - Fixed an issue with library project creation pulling in\
+    startup code\
+\
+* Changed the name of the Linux installer from .run to .bin\
+  to avoid issues with the Flexera download system\
+\
+* Fixed the Linux P&E Micro udev rules setup for users who have\
+  Kinetis Design Studio installed\
+    \
+* Documentation fixes and minor enhancements to reflect product\
+  changes\
+  \
+* Enhancements to LPC84x support, including ROM divide support\
+  in the new project wizard\
+ \
+* Added PN7xxxx to the list of pre-installed MCUs  \
+\
+* Added QN9080-specific LinkServer debug support
+\b \
+\
+Version 10.0.0 (Mar 2017)\
+\
+
+\b0 * First release
+\b \
+
+\b0 \
+ 
+\f1\fs20 \
+}

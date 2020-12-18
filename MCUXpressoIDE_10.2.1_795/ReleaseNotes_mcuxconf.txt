@@ -1,0 +1,162 @@
+Release Notes for MCUXpresso Configuration Tools
+================================================
+Version: 4.1
+Date: 16-May-2018
+
+MCUXpresso Configuration Tools is a suite of tools that help users of all levels with a Cortex-M-based MCU solution. 
+It's an expert on all things MCU and can guide you from first evaluation to production development. 
+Features:
+- Available as Web and Desktop application
+- Kinetis SDK v2 support
+- Multicore support
+- Localized for English and Simplified Chinese
+- Mostly Connected: On-Demand device data download
+- Integrates with any compiler and IDE
+- Project Cloner allows you to clone existing SDK example projects (requires MCUXpresso SDK 2.x package) for selected toolchain.  
+  - Supports the following toolchains: IAR Embedded Workbench, Keil MDK uVision, ARM GCC
+- Supports English and Chinese (simplified) languages, based on locale settings. Please refer to user manual for details.
+
+Following tools are currently available:
+
+Peripherals Tool
+================
+Newly added in this version. The Peripherals Tool features:
+- Configuration of initialization for SDK drivers
+- User-friendly user interface allowing you to inspect and modify settings
+- Smart configuration component selection along the SDK drivers used in a toolchain project
+- Instant validation of basic constraints and configuration issues
+- Generation of initialization source code using SDK function calls
+- Multiple function groups support for initialization alternatives
+
+Pins Tool
+=========
+Pins tool is used for pin routing configuration, validation and code generation, including pin functional/electrical properties, 
+and run-time configurations. 
+The Pins tool features:
+- Muxing and pin configuration with consistency checking
+- ANSI-C initialization code
+- Graphical processor package view
+- Multiple configuration blocks/functions
+- Easy-to-use device configuration
+  - Selection of Pins and Peripherals
+  - Package with IP blocks
+  - Routed pins with electrical characteristics
+  - Registers with configured and reset values
+  - Source code for C/C++ applications
+- Documented and easy to understand source code
+
+Clocks Tool
+===========
+The clocks tool allows you to easily configure initialization of the system 
+clock (core, system, bus, peripheral clocks) and generate a C code with 
+clock initialization functions and configuration structures.
+The Clocks tool features:
+- Inspection and configuration of clock-path elements from the clock source to the core/peripherals
+- Validation of clock elements setting and calculation of the resulting output clock frequencies 
+- Generation of a configuration code using KSDK 2.0
+- Table view of clock elements with their parameters for settings modification and output display 
+- Diagram view to navigate and display important settings and frequencies
+- User assistance for clock-element settings that fulfill given output requirements
+
+System Requirements
+===================
+- One of the following Host Operating systems:
+  - Microsoft(R) Windows(R) 7, 8.1, 10 (32-bit or 64-bit versions)
+  - Ubuntu 16.04 LTS, 17.04 Linux-hosted variants of tools are distributed on Linux as 64-bit binaries, which may not work 
+    on 32-bit systems. Supported desktop environments: GNOME
+  - Mac OS X operating system (10.12 Sierra, 10.13 High Sierra or later)
+- 4GB RAM or more
+- Display with resolution 1024 x 768 or more
+- Internet connection for dynamic download of processor database
+
+System Requirements for the Web Version
+======================================
+- Internet browser with JavaScript enabled
+  - Required versions of web browser: IE 9+, Safari 5.1+, Firefox 33+, and Chrome 38+
+- Internet connection for dynamic download of processor database 
+- Display with resolution 1024 x 768 or more
+
+Known Issues and Limitations
+============================
+* General
+  - It's not possible to import a C file with configuration for Pins and Clocks tools into previous versions (2.0 and below)
+  - Cut, Paste and Delete commands may not work properly when selected from Edit menu.
+  - After detaching all visible windows (views) of any tool to a second monitor all these views might disappear. Menu commands from Views menu might be also affected. 
+	Workaround: Delete "user_home/.nxp/" directory. Note that - this will also reset your preferences.
+  - [Ubuntu] On Ubuntu 14.04, when starting the Tools from the command line, you must enter: export ''UBUNTU_MENUPROXY=0" before 
+    running the Tools. Otherwise, after selecting Tools from the menu, the start will unexpectedly fail.
+  - [Linux/KDE] - There is a bug in some version of GTK causing Tools to crash when switching between tabs. 
+    Workaround: Edit the file /usr/share/themes/oxygen-gtk/gtk-2.0/gtkrc and change `GtkComboBox::appears-as-list = 1` into `GtkComboBox::appears-as-list = 0`
+  - [Linux/KDE] - Issue in KDE themes (one example: http://askubuntu.com/questions/545951/text-color-sometimes-unreadable-in-elegance-kde-desktop-theme)
+    Workaround: Use a different theme, or reset to default System settings -> Application Style. 
+  - [Linux/KDE] - Links (from Help) don't work on Kubuntu. 
+    Workaround: For Ubuntu KDE you may have to install an additional library "libgnomeui-0". Run: apt install libgnomeui-0 from the command line.
+  - [Safari] Web version of the tool might freeze when using Safari browser. Recommended workaround: Use another browser or the desktop version. 
+  - [MacOS] When you exit the Tools by clicking the "x" button in upper-right corner, you will receive the following error: MCUXpresso Config Tools quit unexpectedly. 
+    The error is caused by JVM.
+  - [MacOS] Some of the main tool menu items are shown in English even if the locale is set to Chinese.
+* Pins tool
+  - Tooltips in Target processor view and in drop down menus are not supported in web version.
+  - Hotkey for Delete row in routed pins view is missing in web version.
+  - Package view blinks in the web version.
+  - [Ubuntu] Horizontal scrollbars in Peripheral and Pins view and in Routed pins table are missing on some Linux systems.
+* Clocks tool 
+  - When multiple outputs have frequency locks and an error is found, the error is reported for all the locks that are fed from the same clock source
+* Peripherals tool
+  - Only certain drivers and processors are supported, see MCUXpresso Config Tools website for more details  
+
+Kinetis Specific Issues:
+* UART/FTM modulation functionality is covered by not clear special signals of System Integration Module. 
+  This feature will be better designed by the peripheral modes in the next release.
+* [MKM34] Potential errors in the Route to selection are not correct for multipath connections.
+
+Desktop installer:
+* The tool will not work when the installation path contains following characters "!@#$%^&". This is a Java limitation 
+  and mentioned characters are invalid for Java - https://bugs.eclipse.org/bugs/show_bug.cgi?id=3109.
+* [Ubuntu/Debian] For reinstalling the tool using dpkg first uninstall the tool and then install again.
+
+Revision History
+================
+4.1
+- Undo/Redo supported.
+- Project Cloner moved as an option to the startup dialog and new configuration dialog.
+- Peripherals view now displays errors and warnings. It's possible to filter peripherals or configuration components by their name.
+- Product based on Eclipse Oxygen release 3.
+- Pin-related settings of GPIO moved from Peripherals tool to Pins tool, see 'GPIO initial state' and 'GPIO interrupt' in Routed Pins view.
+- It's possible to select the configuration component version while adding a new configuration component instance to the Peripherals configuration.
+- New toolchain supported for Import toolchain project and project cloning: KEIL DS-MDK v5.27+.
+- Unified import wizard. A single import source is implemented. It allows you to import all supported types of C files.
+- Update Project Code can now display differences in code.
+- New Global Configuration option "Generate extended information into header file" driving number of amount of C defines.
+
+4.0
+- Peripherals Tool added.
+- Project Generator replaced by Project Cloner.
+- Added ability to import configuration from existing MEX file (for selected tools).
+- If the MEX file is stored within the toolchain project, the Tools report a required but missing SDK component in that project.
+- Open configuration command verifies that the configuration matches with sources detected from the toolchain project.
+- Added a common Functions group toolbar across all tools.
+- Added option to not generate YAML.
+- Pins tool: Multiselect in Routed pins view now supported.
+- Syntax coloring supported in Sources view.
+- Export sources wizard simplified.
+- Several bugs fixed and general performance improved.
+- Quick start guide added.
+
+3.0 
+- Project Generator added, new configuration now allows SDK selection
+- Rebranded to MCUXpresso Config Tools
+- Newly views are dock-able, Views menu added.
+- Sources view now displays which core a generated file belongs to (for multicore processors).
+- Problems view improved.
+- Pins view package now supports PoP (package on package) and a generic package.
+- Export sources improved, multicore support added: Generated C code now split into individual folders by core, using a common "pin_mux.c/.h" name.
+
+2.0
+- Clocks Tool added.
+- Labels and Identifiers now supported in Pins tool.
+- Boards and Kits now supported.
+- Several bugs fixed.
+ 
+1.0 
+- Initial version.

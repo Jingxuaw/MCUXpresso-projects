@@ -1,0 +1,80 @@
+Known Issues: MCUXpresso IDE v10.2.1
+------------------------------------
+
+Dragging a project (or file) from the Project Explorer View to a filer
+view will move (not copy) the dragged file(s). The Project Explorer
+View will continue to display the project (or file) until a refresh
+(F5) is performed. Note: If a project (or file) is dragged from one
+Project Explorer View onto a second IDE's Project Explorer View, then
+the project (or file) will be duplicated in the second IDE (Project
+Explorer and workspace).
+
+When installed under Windows 10, the Start menu Uninstall shortcut may
+be missing. If this occurs, uninstallation can be performed via the
+control panel or via the unins000.exe located within the product
+installation folder.
+
+Uninstallation on Windows may on occasion fail to remove all installed
+components.
+
+When using the Disassembly View with a LinkServer debug connection,
+use of the Restart button may cause the view to go blank. This can be
+resolved by clicking on the program location (for instance "main() at
+...") in the Debug View, in order to restore the current debug
+context.
+
+On Ubunutu, if you attempt to open a PDF, such as the SDK
+Documentation, from within the IDE, the system may prompt you to save
+the file rather than opening it directly.
+
+On Ubuntu when debugging with LPC-Link1, in some circumstances attempts
+to debug when the probe needs to be booted may fail. In such
+circumstances, click on the Cancel button of the displayed dialog, and
+then launch the debug session again.
+
+The very first time a debug session to a new debug probe or evaluation
+board is started, Windows may need to install drivers to support the
+new device. In rare circumstances the IDE may hang whilst waiting for
+the probe's drivers to install and for the device to be enumerated.
+
+Restarting the IDE whilst a debug session is in operation will not
+terminate the debug session, which means that trying to start new debug
+sessions after the restart may fail. In such circumstances, you may
+need to manually kill the debug processes running under the IDE
+(typically arm-none-eabi-gdb, crt_emu_cm_redlink and redlinkserv)
+before a successful debug connection can be made.
+
+SWO Trace via LPC-Link2 to LPC546xx and LPC541xx parts requires
+appropriate pinmux and trace clock setup. The SDKs for these parts
+only contain the appropriate pinmux and clock setup for examples in
+the "demo_apps" category. Other example projects, or projects created
+from the New Project Wizard, will therefore require modifications
+before SWO Tracing can be carried out. Please see the "MCUXpresso IDE
+LinkServer SWO Trace Guide" for more details.
+
+The LinkServer Instruction Trace and SWO Trace mechanisms are
+currently not fully compatible with each other. Thus, it is not
+recommended to use both in a single debug session. You may also
+require a board reset between carrying out the two forms of trace.
+
+When debugging the KV5x family, you may see issues in the display of
+non-word (32-bit) sized registers in the Peripheral View, due to the
+way the internal debug bus has been implemented.
+
+Probe discovery / Launch configuration generation can take a long time
+on some Mac OS X 10.12 (Sierra) installations, due to an OS / Java
+issue with the java.net.InetAddress.getLocalHost() function. This can
+be fixed by modifying your "/etc/hosts" file (see the "MCUXpresso IDE
+Installation Guide" for more details).
+
+Due to restrictions in the length of filenames accepted by the Windows
+version of the underlying GCC toolchain, it is recommended that the
+length of project names is kept to 56 characters or less. Otherwise
+you may see project build error messages regarding files not being
+found, particularly during the link step.
+
+The first time the MCUXpresso Config Tools (integrated into the IDE)
+are started, you will see a short delay whilst data is fetched from a
+remote server. A message and an hourglass will be displayed during
+this delay (which may take 30 seconds or so, depending upon your
+network connection). Future IDE releases will reduce this delay.
