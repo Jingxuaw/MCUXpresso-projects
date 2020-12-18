@@ -1,0 +1,113 @@
+[Version]
+Signature = "$Windows NT$"
+Class = USBDevice
+ClassGuid={88BAE032-5A81-49f0-BC3D-A4FF138216D6}
+Provider = %ProviderName%
+DriverVer=08/06/2009,7.0.7600.16385
+CatalogFile=nxp_labtool.cat
+
+; ================== Class section ==================
+
+[ClassInstall32]
+Addreg=MyDeviceClassReg
+
+[MyDeviceClassReg]
+HKR,,,0,%ClassName%
+HKR,,Icon,,-1
+
+; ========== Manufacturer/Models sections ===========
+
+[Manufacturer]
+%ProviderName% = NXP_WinUSB,NTx86,NTamd64,NTia64
+
+[NXP_WinUSB.NTx86]
+%USB\VID_1FC9&PID_0018.DeviceDesc% =USB_Install, USB\VID_1FC9&PID_0018
+
+[NXP_WinUSB.NTamd64]
+%USB\VID_1FC9&PID_0018.DeviceDesc% =USB_Install, USB\VID_1FC9&PID_0018
+
+[NXP_WinUSB.NTia64]
+%USB\VID_1FC9&PID_0018.DeviceDesc% =USB_Install, USB\VID_1FC9&PID_0018
+
+; =================== Installation ===================
+
+;[1]
+[USB_Install]
+Include=winusb.inf
+Needs=WINUSB.NT
+
+;[2]
+[USB_Install.Services]
+AddService=WinUSB,0x00000002,WinUSB_ServiceInstall
+
+;[3]
+[WinUSB_ServiceInstall]
+DisplayName     = %WinUSB_SvcDesc%
+ServiceType     = 1
+StartType       = 3
+ErrorControl    = 1
+ServiceBinary   = %12%\WinUSB.sys
+
+;[4]
+[USB_Install.Wdf]
+KmdfService=WINUSB, WinUsb_Install
+UmdfServiceOrder = WINUSB
+
+[WinUSB_Install]
+KmdfLibraryVersion=1.9
+
+;[5]
+[USB_Install.HW]
+AddReg=Dev_AddReg
+
+[Dev_AddReg]
+HKR,,DeviceInterfaceGUIDs,0x10000,"{D54D422C-1E30-4E6A-8F8E-345DF2AD4211}"
+
+;[6]
+[USB_Install.CoInstallers]
+AddReg=CoInstallers_AddReg
+CopyFiles=CoInstallers_CopyFiles
+
+[CoInstallers_AddReg]
+HKR,,CoInstallers32,0x00010000,"WUDFUpdate_01009.dll","WinUSBCoInstaller2.dll","WdfCoInstaller01009.dll,WdfCoInstaller"
+
+[CoInstallers_CopyFiles]
+WUDFUpdate_01009.dll
+WinUSBCoInstaller2.dll
+WdfCoInstaller01009.dll
+
+[DestinationDirs]
+CoInstallers_CopyFiles=11
+
+; ================= Source Media Section =====================
+;[7]
+
+[SourceDisksNames]
+1 = %DISK_NAME%,,,\x86
+2 = %DISK_NAME%,,,\amd64
+3 = %DISK_NAME%,,,\ia64
+
+[SourceDisksFiles.x86]
+WUDFUpdate_01009.dll=1
+WinUSBCoInstaller2.dll=1
+WdfCoInstaller01009.dll=1
+
+[SourceDisksFiles.amd64]
+WUDFUpdate_01009.dll=3
+WinUSBCoInstaller2.dll=2
+WdfCoInstaller01009.dll=2
+
+[SourceDisksFiles.ia64]
+WUDFUpdate_01009.dll=3
+WinUSBCoInstaller2.dll=3
+WdfCoInstaller01009.dll=3
+
+; =================== Strings ===================
+
+[Strings]
+ProviderName="NXP"
+ClassName="NXP LabTool"
+USB\VID_1FC9&PID_0018.DeviceDesc="NXP LabTool"
+WinUSB_SvcDesc="winUSB"
+DISK_NAME="Drivers"
+
