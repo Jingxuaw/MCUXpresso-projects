@@ -1,0 +1,555 @@
+This is the top-level installation directory for MCUXpresso IDE.
+
+MCUXpresso IDE is owned by NXP B.V.
+
+As detailed in the Software Content Register below, MCUXpresso IDE
+comprises NXP copyrighted files, open source components, and
+components provided by third parties. NXP copyrighted files are
+licensed under the terms of the NXP B.V. proprietary license
+associated with this distribution (see ProductLicense.txt).
+
+Some of the licenses for open source components shipped as part of
+MCUXpresso IDE entitle users to a copy of the source code for that
+component. Where this is the case, the Source URL lines below indicate
+where that source can be downloaded from.  Components with Source URL
+lines referring to nxp.com have been modified as part of producing
+MCUXpresso IDE. Other components have been built from unmodified
+sources.
+
+
+Software Content Register
+--------------------------
+
+Eclipse
+An integrated development environment (IDE). The Eclipse platform and much of
+the content in the ide/ directory is distributed under the Eclipse Public
+License (EPL v1.0). Some content is, however, distributed under different,
+possibly closed source, licenses. See eclipse/notice.html for details.
+License: EPL-1.0
+License File: ./ide/notice.html
+Distribution Type: Binary
+Version: Neon SR2 (4.6.2)
+Location: ./ide/features, ./ide/plugins
+Website: http://www.eclipse.org/
+Upstream Bug Tracker: https://bugs.eclipse.org/bugs/
+Source URL: http://git.eclipse.org/c/
+
+Oracle JRE
+The Java Runtime Environment (JRE), provided by Oracle, required to run Eclipse
+License: Oracle Binary Code License Agreement for the Java SE Platform Products and JavaFX 
+License File: ./ide/jre/LICENSE (or on MacOSX, ./ide/jre/Contents/Home/LICENSE)
+Distribution Type: Binary
+Version: 1.8.0_111
+Location: ./ide/jre
+Website: http: http://www.oracle.com/technetwork/java/javase/overview/index.html
+Upstream Bug Tracker: http://bugs.java.com/
+
+GNU Tools for ARM Embedded Processors
+A GNU toolchain built by ARM
+Licenses: GPL-2.0, GPL-3.0, LGPL-2.0, LGPL-2.1, LGPL-3.0, GPL-2.0-with-GCC-exception, BSD-3-Clause, and further licences (see below)
+Further Licenses: The Newlib and Newlib-nano packages within this component are subject
+to a collection of licenses, listed in Part 12 of the License File. The Expat package is
+subject to the license given in Part 7 of the License File.
+License File: ./ide/tools/license.txt
+Distribution Type: Source & Binary
+Version: 5_4-2016q3-20160926
+Location: ./ide/tools
+Website: http://launchpad.net/gcc-arm-embedded 
+Upstream Bug Tracker: https://bugs.launchpad.net/gcc-arm-embedded
+Source URL: https://launchpad.net/gcc-arm-embedded/+download
+
+GDB for ARM Embedded Processors
+GDB executable taken from a GNU toolchain built by ARM
+Licenses: GPL-2.0, GPL-3.0, LGPL-2.0, LGPL-3.0
+License File: ./ide/tools/license-gdb.txt
+Distribution Type: Source & Binary
+Version: 6_2-2016q4-20161216
+Location: ./ide/tools/bin/arm-none-eabi-gdb[.exe]
+Source URL: https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads
+
+MSYS
+Minimal SYStem (Microsoft Windows)
+Licenses: GPL-2.0, GPL-3.0
+License Files: ./ide/msys/doc/msys/MSYS_LICENSE.rtf, ./licenses/GPLV2.txt, ./licenses/GPLV3.txt
+Distribution Type: Source & Binary
+Version: 1.0.10
+Location (Windows only): ./ide/msys
+Source URL: https://sourceforge.net/projects/mingw/files/MSYS/
+
+libusb
+A library allowing applications to access usb devices
+License: LGPL-2.1
+License File: ./licenses/LGPLV2.1.txt
+Distribution Type: Source & Binary
+Version: 1.0.0
+Location: ./ide/bin
+Source URL: https://sourceforge.net/projects/libusb/files/libusb-1.0/libusb-1.0.0/
+
+dfu-util
+Device Firmware Upgrade Utilities
+License: GPL-2.0
+License File: ./licenses/GPLV2.txt
+Distribution Type: Source & Binary
+Version: 0.9
+Location: ./ide/bin
+Website: http://dfu-util.sourceforge.net/
+Source URL: http://dfu-util.sourceforge.net/releases/dfu-util-0.9.tar.gz
+
+libftd2xx
+D2XX drivers for use in conjunction with products based on FTDI parts
+Distribution Type: Binary
+Location: ./ide/bin
+License: http://www.ftdichip.com/Drivers/FTDriverLicenceTerms.htm
+Website: http://www.ftdichip.com/Drivers/D2XX.htm
+Main Copyright Holder: Future Technology Devices International Ltd.
+
+make (MacOS)
+GNU Make, a tool to automate the process of building applications. Patched to
+support MacOS, and available from opensource.apple.com
+License: GPL-3.0
+License File: ./licenses/GPLV3.txt
+Distribution Type: Source & Binary
+Version: 3.82
+Location (MacOSX only): ./ide/bin/make
+Main Copyright Holder: Free Software Foundation, Inc.
+Website: https://opensource.apple.com/
+Source URL: http://opensource.apple.com/source/gnumake/gnumake-131/
+
+SEGGER
+Drivers and software supporting SEGGER debug adapters, installed in its own default location
+License: SEGGER Microcontroller proprietary license
+License File: <Segger installation directory>/Doc/License.txt
+Distribution Type: Binary
+Version: v6.16b
+Location: ./Drivers/JLink_Windows.exe OR ./JLink_Linux_x86_64.deb OR ./JLink_MacOSX.pkg
+Main Copyright Holder: SEGGER Microcontroller
+Website: http://www.segger.com/
+
+pemicro
+Drivers and software supporting P&E debug adapters
+License: P&E Microcomputer Systems, Inc proprietary license
+License File: ./licenses/pemicro/license_gdb.pdf
+Distribution Type: Binary
+Version: 3.0.3 (gdbjtag) and 1.2.0 (core)
+Location: ./ide/plugins/com.pemicro.* AND (Windows only) ./Drivers/PEDrivers_install.exe
+Main Copyright Holder: P&E Microcomputer Systems
+Website: http://www.pemicro.com/
+
+LPCOpen and CodeBundles
+A collection of software libraries for LPC MCUs
+License: NXP LPCOpen license
+License File: ./ide/Examples/LPCOpen/license.txt
+Distribution Type: Source
+Location: ./ide/Examples/LPCOpen and ./ide/Examples/CodeBundles
+Website: http://www.nxp.com/lpcopen
+
+Softworkz DNA
+Third party license management tool, licensed to NXP use
+License: softWORKZ Innovation Inc. proprietary license
+Distribution Type: Binary
+Location: ./ide/bin AND ./ide/plugins
+Website: https://www.softworkz.com/
+
+Microsoft Visual Studio Redistributable Runtime libraries
+License: Microsoft Software License
+Distribution Type: Binary
+Location (Windows only): ./vcredist_x86.exe
+Website: https://msdn.microsoft.com
+
+
+MCUXpresso Proprietary Software
+License: LA_OPT_HOST_TOOL
+License file: ./ProductLicense.txt
+Main Copyright Holder: NXP
+Format: Binary
+Location: ./ide
+
+
+-----------------------------------------------------
+Project:  bridgeprobes - additional components
+Format:   Binary
+Location: ./ide/bin/*.bin.hdr
+-----------------------------------------------------
+
+Component:	ARM CMSIS Core Headers
+Version:	3.2.0
+Home Page:	https://silver.arm.com
+License:	BSD-3-Clause
+License file:   ./licenses/BSD-3-clause.txt
+
+-----------------------------------------------------
+Project:  flashdrivers - additional components
+Format:   Binary
+Location:       ./ide/bin/Flash
+-----------------------------------------------------
+
+Component:	ARM CMSIS Core Headers
+Version:	3.2.0
+Home Page:	https://silver.arm.com
+License:	BSD-3-Clause
+License file:   ./licenses/BSD-3-clause.txt
+
+-----------------------------------------------------
+Project:  ide (plugins) - additional components
+Format:   Binary
+Location: ./ide/plugins
+-----------------------------------------------------
+
+Component:	Apache ORO
+Version:	2.0.8
+Home Page:	http://jakarta.apache.org/oro/index.html
+License:	Apache-1.1
+License file:   ./licenses/Apache-1.1.txt
+
+Component:	Apache Xerces Java XML Parser
+Version:	2.9.0
+Home Page:	http://xml.apache.org/xerces2-j/index.html
+License:	Apache-2.0
+License file:   ./licenses/Apache-2.0.txt
+
+Component:	Apache Xerces Java XML Parser
+Version:	2.7.0
+Home Page:	http://xml.apache.org/xerces2-j/index.html
+License:	Apache-2.0
+License file:   ./licenses/Apache-2.0.txt
+
+Component:	ARM CMSIS Core Headers
+Version:	3.2.0
+Home Page:	https://silver.arm.com
+License:	BSD-3-Clause
+License file:   ./licenses/BSD-3-clause.txt
+
+Component:	Blowfish Autogen
+Version:	1.0
+Home Page:	http://www.schneier.com/blowfish.html
+License:	Public Domain
+
+Component:	BlowfishJ
+Version:	2.20
+Home Page:	http://sourceforge.net/projects/blowfishj/
+License:	Apache-2.0
+License file:   ./licenses/Apache-2.0.txt
+
+Component:	FMPP - FreeMarker-based PreProcessor
+Version:	Unspecified
+Home Page:	http://sourceforge.net/projects/fmpp/
+License:	BSD-3-Clause
+License file:   ./licenses/BSD-3-clause.txt
+
+Component:	FMPP - FreeMarker-based PreProcessor
+Version:	0.9.14
+Home Page:	http://sourceforge.net/projects/fmpp/
+License:	BSD-3-Clause
+License file:   ./licenses/BSD-3-clause.txt
+
+Component:	freemarker
+Version:	Unspecified
+Home Page:	http://github.com/freemarker/freemarker/
+License:	Apache-2.0
+License file:   ./licenses/Apache-2.0.txt
+
+Component:	Java API for working with Human Interface USB Devices (HID) - com.codeminders:hidapi
+Version:	1.1
+Home Page:	http://repo.maven.apache.org/maven2//com/codeminders/hidapi/
+License:	BSD-3-Clause
+License file:   ./licenses/BSD-3-clause.txt
+
+Component:	Android - platform - sdk
+Version:	Unspecified
+Home Page:	http://developer.android.com/index.html
+License:	Apache-2.0
+License file:   ./licenses/Apache-2.0.txt
+
+-----------------------------------------------------
+Project:  ide (plugins) - icons and image files
+Format:   Unmodified image files
+Location: ./ide/plugins
+-----------------------------------------------------
+
+Component:	Android - platform - prebuilts - eclipse-build-deps
+Version:	Unspecified
+Home Page:	http://developer.android.com/index.html
+License:	EPL-1.0
+License File:   ./ide/notice.html
+
+Component:	EasyEclipse: Eclipse distros and plugins - EasyEclipse 1.0 plugins
+Version:	0.8.0
+Home Page:	http://sourceforge.net/projects/easyeclipse/
+License:	CPL-1.0
+License file:   ./licenses/CPL-1.0.txt
+
+Component:	Eclipse 3.6 Helios
+Version:	Unspecified
+Home Page:	http://repo1.maven.org/maven2/org/eclipse/org.eclipse.eclipse/
+License:	EPL-1.0
+License File:   ./ide/notice.html
+
+Component:	Eclipse Mylyn
+Version:	Unspecified
+Home Page:	http://www.eclipse.org/mylyn/
+License:	EPL-1.0
+License File:   ./ide/notice.html
+
+Component:	Eclipse profiler plugin
+Version:	0.12
+Home Page:	http://sourceforge.net/projects/eclipsecolorer/
+License:	CPL-1.0
+License file:   ./licenses/CPL-1.0.txt
+
+Component:	Eclipse Project
+Version:	1.0
+Home Page:	http://www.eclipse.org/eclipse/index.php
+License:	CPL-1.0
+License file:   ./licenses/CPL-1.0.txt
+
+Component:	Eclipse Project
+Version:	Unspecified
+Home Page:	http://www.eclipse.org/eclipse/index.php
+License:	EPL-1.0
+License File:   ./ide/notice.html
+
+Component:	Eclipse Project
+Version:	3.2.2
+Home Page:	http://www.eclipse.org/eclipse/index.php
+License:	EPL-1.0
+License File:   ./ide/notice.html
+
+Component:	Eclipse Tools CDT - C/C++ Development Tools
+Version:	8.3.0
+Home Page:	http://www.eclipse.org/cdt/
+License:	EPL-1.0
+License File:   ./ide/notice.html
+
+Component:	Eclipse Tools CDT - C/C++ Development Tools
+Version:	Unspecified
+Home Page:	http://www.eclipse.org/cdt/
+License:	EPL-1.0
+License File:   ./ide/notice.html
+
+Component:	Eclipse Trader
+Version:	0.6.0
+Home Page:	http://sourceforge.net/projects/eclipsetrader/
+License:	CPL-1.0
+License file:   ./licenses/CPL-1.0.txt
+
+Component:	RAP
+Version:	Unspecified
+Home Page:	http://www.eclipse.org/rap/
+License:	EPL-1.0
+License File:   ./ide/notice.html
+
+-----------------------------------------------------
+Project:  ide (plugins) - additional components
+Format:   Source & Binary
+Location: ./ide/plugins
+-----------------------------------------------------
+
+Component:	BSH
+Version:	2.0b4
+Home Page:	http://www.beanshell.org/
+License:	SPL-1.0
+License file:   ./licenses/SPL-1.0.txt
+Source URL:     http://www.beanshell.org/bsh-2.0b4-src.zip
+
+Component:	Saxon XSLT and XQuery Processor - Saxon-B
+Version:	Unspecified
+Home Page:	http://sourceforge.net/projects/saxon/
+License:	MPL-1.0
+License file:   ./licenses/MPL-1.0.txt
+Source URL:     https://sourceforge.net/projects/saxon/files/Saxon-B/
+
+Component:	Saxon XSLT and XQuery Processor - Saxon-HE
+Version:	Unspecified
+Home Page:	http://sourceforge.net/projects/saxon/
+License:	MPL-1.0
+License file:   ./licenses/MPL-1.0.txt
+Source URL:     https://sourceforge.net/projects/saxon/files/Saxon-HE/
+
+-----------------------------------------------------
+Project:  imageManager - additional components
+Format:   Binary
+Location: ./ide/bin/image_manager*
+-----------------------------------------------------
+
+Component:	waitzar
+Version:	Unspecified
+Home Page:	http://code.google.com/p/waitzar/
+License:	Apache-2.0
+License file:   ./licenses/Apache-2.0.txt
+
+-----------------------------------------------------
+Project:  libraries - additional components
+Format:   Binary
+Location: ./ide/tools/lib/gcc/arm-none-eabi/5.4.1/*/libcr_eabihelpers.a
+          ./ide/tools/arm-none-eabi/lib/*/libcr_*.a
+-----------------------------------------------------
+
+Component:     Codemist Redlib component
+Version:       Unspecified
+License:       LA_OPT_HOST_TOOL
+Main Copyright Holder:  Codemist
+License file:   ./ProductLicense.txt
+ 
+Component:     ByteHawk aeabi helpers
+Version:       Unspecified
+License:       LA_OPT_HOST_TOOL
+Main Copyright Holder:  ByteHawk Systems Limited
+License file:   ./ProductLicense.txt
+
+Component:	Newlib
+Version:	Unspecified
+Home Page:	http://sourceware.org/newlib/
+License:	BSD-3-Clause
+License file:   ./licenses/BSD-3-clause.txt
+
+-----------------------------------------------------
+Project:  linkserver - additional components
+Format:   Binary
+Location: ./ide/bin/*redlink*
+-----------------------------------------------------
+
+Component:	Blowfish Autogen
+Version:	1.0
+Home Page:	http://www.schneier.com/blowfish.html
+License:	Public Domain
+
+Component:	BSD 2-clause "Simplified" License
+Version:	2.0
+Home Page:	http://www.freebsd.org/copyright/freebsd-license.html
+License:	BSD-2-Clause
+License file:   ./licenses/BSD-2-clause-simplified.txt
+
+Component:	BSD 3-clause "New" or "Revised" License
+Version:	Unspecified
+Home Page:	http://www.opensource.org/licenses/bsd-license.php
+License:	BSD-3-Clause
+License file:   ./licenses/BSD-3-clause.txt
+
+Component:	CRC
+Version:	Unspecified
+Home Page:	
+License:	Public Domain
+
+Component:	Expat XML Parser - libexpat
+Version:	Unspecified
+Home Page:	http://www.libexpat.org/
+License:	MIT
+License File:   ./licenses/MIT_expat.txt
+
+Component:	ftllib
+Version:	Unspecified
+Home Page:	https://github.com/GrayGirling/FTL
+License:	BSD-3-Clause
+License file:   ./licenses/BSD-3-clause.txt
+
+Component:	Haiku
+Version:	r1alpha1
+Home Page:	http://sourceforge.net/projects/open-beos/
+License:	MIT
+License file:   ./licenses/MIT.txt
+
+Component:	hidapi
+Version:	Unspecified
+Home Page:	http://github.com/signal11/hidapi/
+License:	BSD-4-Clause
+License file:   ./licenses/BSD-4-clause.txt
+
+Component:	Kerberos 5 (KRB5)
+Version:	Unspecified
+Home Page:	http://web.mit.edu/kerberos/www/
+License:	Krb5-MIT License
+License file:   ./licenses/Krb5-MIT.txt
+
+Component:	libftd2xx i386 24Feb2017
+Version:	Unspecified
+Home Page:	http://www.ftdichip.com/Drivers/D2XX.htm
+License:	http://www.ftdichip.com/Drivers/FTDriverLicenceTerms.htm
+Main Copyright Holder: Future Technology Devices International Ltd.
+
+Component:	linenoise
+Version:	master-20100914
+Home Page:	http://github.com/antirez/linenoise/
+License:	BSD-3-Clause
+License file:   ./licenses/BSD-3-clause.txt
+
+Component:	md5 algorithm
+Version:	Unspecified
+Home Page:	https://www.ietf.org/rfc/rfc1321.txt
+License:     RSA-MD
+License file:   ./licenses/RSA-MD.txt
+
+Component:	nxpUSBlib
+Version:	master-20130106
+Home Page:	http://github.com/openxc/nxpUSBlib/
+License:	LA_OPT_HOST_TOOL
+License file:   ./ProductLicense.txt
+
+Component:	Visual Studio Autogenerated Code
+Version:	Unspecified
+Home Page:	http://www.visualstudio.com/
+License:	Microsoft Enterprise Library License
+
+-----------------------------------------------------
+Project: peripherals - additional components
+-----------------------------------------------------
+
+Component:	CMSIS-SVD schema files
+Version:	Unspecified
+Home Page:	
+License:	BSD-3-Clause
+License file:   ./licenses/BSD-3-clause.txt
+
+-----------------------------------------------------
+Project: probedrivers - additional components
+-----------------------------------------------------
+
+Component:	libftd2xx i386 24Feb2017
+Version:	Unspecified
+Home Page:	http://www.ftdichip.com/Drivers/D2XX.htm
+License:	http://www.ftdichip.com/Drivers/FTDriverLicenceTerms.htm
+Main Copyright Holder: Future Technology Devices International Ltd.
+
+Component:	libftd2xx i386 24Feb2017
+Version:	1.3.6
+Home Page:	http://www.ftdichip.com/Drivers/D2XX.htm
+License:	http://www.ftdichip.com/Drivers/FTDriverLicenceTerms.htm
+Main Copyright Holder: Future Technology Devices International Ltd.
+
+Component:	Visual Studio Autogenerated Code
+Version:	Unspecified
+Home Page:	http://www.visualstudio.com/
+License:	Microsoft Enterprise Library License
+
+Component:	Visual Studio Autogenerated Code
+Version:	2008
+Home Page:	
+License:	Microsoft Visual Studio 2008 Professional and Trial Editions License
+
+-----------------------------------------------------
+Project: product (User documentation - images and icons)
+-----------------------------------------------------
+
+Component:	Eclipse Project
+Version:	3.0.1
+Home Page:	http://www.eclipse.org/eclipse/index.php
+License:	CPL-1.0
+License file:   ./licenses/CPL-1.0.txt
+
+Component:	Eclipse Project
+Version:	3.2.1
+Home Page:	http://www.eclipse.org/eclipse/index.html
+License:	EPL-1.0
+License File:   ./ide/notice.html
+
+Component:	Eclipse Project
+Version:	3.2.2
+Home Page:	http://www.eclipse.org/eclipse/index.php
+License:	EPL-1.0
+License File:   ./ide/notice.html
+
+Component:	Eclipse Project
+Version:	Unspecified
+Home Page:	http://www.eclipse.org/eclipse/index.php
+License:	EPL-1.0
+License File:   ./ide/notice.html
+

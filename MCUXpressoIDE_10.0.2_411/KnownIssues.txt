@@ -1,0 +1,57 @@
+Known Issues: MCUXpresso IDE v10.0.2
+------------------------------------
+
+The very first time a debug session to a new debug probe or evaluation
+board is started, Windows may need to install drivers to support the
+new device. In rare circumstances the IDE may hang whilst waiting for
+the probe's drivers to install and for the device to be enumerated.
+
+Restarting the IDE whilst a debug session is in operation will not
+terminate the debug session, meaning that trying to start new debug
+sessions after the restart may fail. In such circumstances, you may
+need to manually kill the debug processes running under the IDE
+(typically arm-none-eabi-gdb, crt_emu_cm_redlink and redlinkserv)
+before a successful debug connection can be made.
+
+SWO Trace via LPC-Link2 to LPC546xx and LPC541xx parts requires
+appropriate pinmux and trace clock setup. The SDKs for these parts
+only contain the appropriate pinmux and clock setup for examples in
+the "demo_apps" category. Other example projects, or projects created
+from the New Project Wizard, will therefore require modifications
+before SWO Tracing can be carried out. Please see the "MCUXpresso IDE
+LinkServer SWO Trace Guide" for more details.
+
+The LinkServer Instruction Trace and SWO Trace mechanisms are
+currently not fully compatible with each other. Thus, it is not
+recommended to use both in a single debug session. You may also
+require a board reset between carrying out the two forms of trace.
+
+When debugging the KV5x family, you may see issues in the display of
+non-word (32-bit) sized registers in the Peripheral View, due to the
+way the internal debug bus has been implemented.
+
+When importing SDK examples, if one example is imported, then the
+project settings will default to use semihosting. However, if multiple
+projects are selected for importing, then the settings will default to
+using the SDK UART DebugConsole output. Existing projects can be
+switched from semihosting to UART via the Quickstart Panel - Quick
+Settings option.
+
+If SDK multicore examples are imported with a non-default name, then
+the linkage between the slave and master projects will be broken. This
+can be resolved by manually changing the master project's Multicore
+settings to correct the name of the linked slave project, as well as
+correcting the Project References.
+
+The automatic generation of SEGGER and P&E Micro launch 
+configurations cannot currently handle creating the correct 
+settings for debugging a 'slave' CPU in a multicore MCU (such
+as LPC5411x). It is necessary to manually tweak the default settings
+in order to successfully debug the slave project in parallel with
+the master project.
+
+Probe discovery / Launch configuration generation can take a long
+time on some Mac OS X 10.12 (Sierra) installs, due to an OS / Java
+issue with the java.net.InetAddress.getLocalHost() function. This can
+be fixed by modifying your "/etc/hosts" file (see the "MCUXpresso IDE 
+Installation Guide" for more details).

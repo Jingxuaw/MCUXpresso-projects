@@ -1,0 +1,14 @@
+The MCUXpresso IDE brings developers an easy-to-use development
+environment for NXP MCUs based on ARM Cortex-M cores, including LPC
+and Kinetis microcontrollers. The MCUXpresso IDE offers advanced
+editing, compiling and debugging features with the addition of
+MCU-specific debugging views, code trace and profiling, multicore
+debugging, and more. The MCUXpresso IDE debug connections support
+Freedom, Tower, LPCXpresso and your custom development boards with
+industry-leading open-source and commercial debug probes from NXP,
+P&E Micro and SEGGER.
+
+For information and support, please visit
+http://www.nxp.com/mcuxpresso/ide
+
+We hope you enjoy using MCUXpresso IDE.
